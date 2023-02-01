@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,35 +24,41 @@ Route::get('/admin/dashboard', function () {
     return view('backend.pages.dashboard');
 });
 
+Route::get('/admin/login', function () {
+    return view('backend.auth.login');
+});
+
+Route::get('/admin/register', function () {
+    return view('backend.auth.register');
+});
+
+Route::resource('/admin/user', UsersController::class);
+
+
+
+
 // Frontend Route
 Route::get('/', function () {
     return view('frontend.layouts.app');
 });
-
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
-
 Route::get('/about', function () {
     return view('frontend.pages.about');
 });
-
 Route::get('/accomodation', function () {
     return view('frontend.pages.accomodation');
 });
-
 Route::get('/gallery', function () {
     return view('frontend.pages.gallery');
 });
-
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
-
 Route::get('/blog_details', function () {
     return view('frontend.pages.blog_details');
 });
-
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
