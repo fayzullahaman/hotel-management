@@ -58,7 +58,7 @@
             <div class="card-header">Add User Form</div>
 
             <div class="card-body">
-              <form method="post" action="{{ url('admin/user') }}" enctype="multipart/form-data">
+              <form method="post" action="{{ url('admin/user/edit') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                   <div class="col-md-6">
@@ -88,24 +88,13 @@
                       <input class="form-control" type="password" name="password" placeholder="Password">
                     </div>
                   </div>
-                  {{-- <div class="col-md-6">
-                                        <div class="input-group mb-4"><span class="input-group-text">
-                                                <svg class="icon">
-                                                    <use
-                                                        xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked">
-                                                    </use>
-                                                </svg></span>
-                                            <input class="form-control" type="password" name="password"
-                                                placeholder="Repeat password">
-                                        </div>
-                                    </div> --}}
                   <div class="input-group mb-4">
                     <input class="form-control" type="file" name="image">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button class="btn btn-success px-4" type="submit">Create User</button>
+                    <button class="btn btn-success px-4" type="submit">Update User</button>
                   </div>
                 </div>
               </form>

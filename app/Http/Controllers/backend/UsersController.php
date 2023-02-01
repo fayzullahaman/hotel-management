@@ -51,7 +51,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         if ($request->image) {
-            $imageName = time() . '.' .                     $request->image->extension();
+            $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('user_image'), $imageName);
             $user->image = $imageName;
         } else {
@@ -71,7 +71,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return view('backend.pages.users', compact(product));
+        return view('backend.pages.users', compact('user'));
     }
 
     /**
@@ -82,7 +82,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "hello";
+        // return view('backend.pages.users.edit', compact('user'));
     }
 
     /**
@@ -103,7 +104,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         $user->delete();
         // echo "Success";
