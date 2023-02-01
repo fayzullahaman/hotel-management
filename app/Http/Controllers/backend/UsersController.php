@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UsersController extends Controller
 {
@@ -15,7 +16,8 @@ class UsersController extends Controller
     public function index()
     {
         // echo "Hello";
-        return view('backend.pages.users.index');
+        $users = User::get();
+        return view('backend.pages.users.index', compact('users'));
     }
 
     /**
@@ -25,7 +27,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.users.create');
     }
 
     /**
@@ -36,7 +38,29 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // echo "hello world";
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,pdf,jpg,gif,svg|max:2048',
+            'email' => 'required',
+            'password' => 'required|string|min:4',
+        ]);
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        if ($request->image) {
+            $imageName = time() . '.' .                     $request->image->extension();
+            $request->image->move(public_path('user_image'), $imageName);
+            $user->image = $imageName;
+        } else {
+            $user->image = '';
+        }
+        // $product->product_image = $imageName;
+        $user->save();
+        // echo "Success";
+        return redirect('admin/user')->with("msg", "User Added");
     }
 
     /**
@@ -47,7 +71,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('backend.pages.users', compact(product));
     }
 
     /**
@@ -81,6 +105,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user->delete();
+        // echo "Success";
+        return redirect('admin/user')->with("msg", "User Deltele");
     }
 }

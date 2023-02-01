@@ -9,7 +9,7 @@
     <meta name="description" content="Royal - Hotel Management">
     <meta name="author" content="Fayzullah Aman">
     <meta name="keyword" content="Bootstrap,Admin,Template,jQuery,CSS,HTML,RWD,Dashboard,Laravel8">
-    <title>Royal Hotel</title>
+    <title>Royal Hotel Login</title>
 
     <!-- Vendors styles-->
     <link rel="stylesheet" href="/back_assets/css/vendors/simplebar.css">

@@ -21,8 +21,8 @@
           <ul class="nav-group-items">
               <li class="nav-item"><a class="nav-link" href="{{url('admin/user')}}"><span class="nav-icon"></span>
                       All Users</a></li>
-              <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span>
-                      Create User</a></li>                
+              <li class="nav-item"><a class="nav-link" href="{{url('admin/user/create')}}"><span class="nav-icon"></span>
+                      Create User</a></li>
           </ul>
       </li>
       <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">

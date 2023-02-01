@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Register')
+@section('title', 'Users')
 @push('styles')
     <link rel="apple-touch-icon" sizes="57x57" href="/back_assets/assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/back_assets/assets/favicon/apple-icon-60x60.png">
@@ -65,17 +65,40 @@
                                             </use>
                                         </svg>
                                     </th>
-                                    <th>User</th>
-                                    <th>Country</th>
-                                    <th>Usage</th>
-                                    <th>Payment Method</th>
-                                    <th>Activity</th>
+                                    {{-- <th>Image</th> --}}
+                                    <th>Name</th>
+                                    <th>Email</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($users as $user)
                                 <tr class="align-middle">
-                                    <td class="text-center">
+                                    <td><img src="{{asset($user->image)}}" alt=""></td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-transparent p-0" type="button"
+                                                data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <svg class="icon">
+                                                    <use
+                                                        xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-options">
+                                                    </use>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
+                                                    href="#">Info</a><a class="dropdown-item"
+                                                    href="{{url('admin.user.edit')}}">Edit</a>
+                                                    <form method="post" action="{{ url('admin.user.destroy', $user->id) }}">
+                                                        {{ method_field('DELETE') }} @csrf
+                                                    <input class="dropdown-item text-danger" type="submit" value="Delete">
+                                                    </form>
+                                                    {{-- <a class="dropdown-item text-danger"
+                                                    href="">Delete</a></div> --}}
+                                        </div>
+                                    </td>
+                                    {{-- <td class="text-center">
                                         <div class="avatar avatar-md"><img class="avatar-img"
                                                 src="/back_assets/assets/img/avatars/1.jpg" alt="user@email.com"><span
                                                 class="avatar-status bg-success"></span></div>
@@ -130,8 +153,9 @@
                                                     href="#">Edit</a><a class="dropdown-item text-danger"
                                                     href="#">Delete</a></div>
                                         </div>
-                                    </td>
+                                    </td> --}}
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
