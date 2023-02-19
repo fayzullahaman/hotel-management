@@ -103,11 +103,11 @@
           <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-star"></use>
         </svg> Pages</a>
       <ul class="nav-group-items">
-        <li class="nav-item"><a class="nav-link" href="{{ url('admin/login') }}" target="_top">
+        <li class="nav-item"><a class="nav-link" href="{{ url('/admin/login') }}" target="_top">
             <svg class="nav-icon">
               {{-- <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use> --}}
             </svg> Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url('admin/register') }}" target="_top">
+        <li class="nav-item"><a class="nav-link" href="{{ url('/admin/register') }}" target="_top">
             <svg class="nav-icon">
               {{-- <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use> --}}
             </svg> Register</a></li>

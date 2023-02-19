@@ -41,7 +41,7 @@ class UsersController extends Controller
         // echo "hello world";
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,pdf,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,pdf,jpg,gif,svg|max:2048',
             'email' => 'required',
             'password' => 'required|string|min:4',
         ]);
@@ -60,7 +60,7 @@ class UsersController extends Controller
         // $product->product_image = $imageName;
         $user->save();
         // echo "Success";
-        return redirect('admin/user')->with("msg", "User Added");
+        return redirect('/admin/user')->with("msg", "User Added");
     }
 
     /**
@@ -80,10 +80,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        echo "hello";
-        // return view('backend.pages.users.edit', compact('user'));
+        // $cats = Category::orderBy('cat_name', 'ASC')->get();
+        // return view("backend.product.edit", compact('product', 'cats'));
+        // echo "hello";
+        return view('backend.pages.users.edit', compact('user'));
     }
 
     /**
@@ -93,9 +95,28 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // echo "hello world";
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,pdf,jpg,gif,svg|max:2048',
+        ]);
+
+        // $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->image) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('user_image'), $imageName);
+            $user->image = $imageName;
+        } 
+        // $product->product_image = $imageName;
+        // $user->update($request->all());
+        $user->update();
+        // echo "Success";
+        return redirect('/admin/user')->with("msg", "User Update Successfully");
     }
 
     /**
@@ -108,6 +129,6 @@ class UsersController extends Controller
     {
         $user->delete();
         // echo "Success";
-        return redirect('admin/user')->with("msg", "User Deltele");
+        return redirect('/admin/user')->with("msg", "User Deltele");
     }
 }

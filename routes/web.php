@@ -20,19 +20,19 @@ use App\Http\Controllers\backend\UsersController;
 
 // Backend Route
 
-Route::get('/admin/dashboard', function () {
-    return view('backend.pages.dashboard');
-});
+// Route::get('/admin/dashboard', function () {
+//     return view('backend.pages.dashboard');
+// });
 
-Route::get('/admin/login', function () {
-    return view('backend.auth.login');
-});
+// Route::get('/admin/login', function () {
+//     return view('backend.auth.login');
+// });
 
-Route::get('/admin/register', function () {
-    return view('backend.auth.register');
-});
+// Route::get('/admin/register', function () {
+//     return view('backend.auth.register');
+// });
 
-Route::resource('/admin/user', UsersController::class);
+// Route::resource('/admin/user', UsersController::class);
 
 
 
@@ -61,4 +61,26 @@ Route::get('/blog_details', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
+});
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+Route::prefix('admin')->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('backend.pages.dashboard');
+    })->name('dashboard');
+    // Another line
+    Route::resource('user', UsersController::class);
 });

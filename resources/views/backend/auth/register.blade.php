@@ -47,41 +47,47 @@
                             <div class="card-body">
                                 <h1>Register</h1>
                                 <p class="text-medium-emphasis">Create your account</p>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
                                 <div class="input-group mb-3"><span class="input-group-text">
                                         <svg class="icon">
                                             <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
 
                                         </svg></span>
-                                    <input class="form-control" type="text" placeholder="Username">
+                                    <input class="form-control" :value="old('name')" name="name" type="text" placeholder="Username">
                                 </div>
                                 <div class="input-group mb-3"><span class="input-group-text">
                                         <svg class="icon">
                                             <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-envelope-open">
                                             </use>
                                         </svg></span>
-                                    <input class="form-control" type="text" placeholder="Email">
+                                    <input class="form-control" name="email" :value="old('email')" type="email" placeholder="Email">
                                 </div>
                                 <div class="input-group mb-3"><span class="input-group-text">
                                         <svg class="icon">
                                             <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
                                         </svg></span>
-                                    <input class="form-control" type="password" placeholder="Password">
+                                    <input class="form-control" type="password" name="password" placeholder="Password">
                                 </div>
                                 <div class="input-group mb-4"><span class="input-group-text">
                                         <svg class="icon">
                                             <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
                                         </svg></span>
-                                    <input class="form-control" type="password" placeholder="Repeat password">
+                                    <input class="form-control" type="password" name="password_confirmation" placeholder="Repeat password">
                                 </div>
+                                <div class="input-group mb-4">
+                                 <input class="form-control" type="file" name="image">
+                               </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-success px-4" type="button">Create Account</button>
+                                        <button class="btn btn-success px-4" >Create Account</button>
                                     </div>
                                     <div class="col-6 text-end">
                                         <a href="{{ url('/admin/login') }}" class="btn btn-info px-4"
                                             type="button">Login</a>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

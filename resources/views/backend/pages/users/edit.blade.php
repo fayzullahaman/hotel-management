@@ -58,8 +58,9 @@
             <div class="card-header">Add User Form</div>
 
             <div class="card-body">
-              <form method="post" action="{{ url('admin/user/edit') }}" enctype="multipart/form-data">
+              <form method="post" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
                 @csrf
+                {{method_field("PUT")}}
                 <div class="row">
                   <div class="col-md-6">
                     <div class="input-group mb-3"><span class="input-group-text">
@@ -67,7 +68,9 @@
                           <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-user">
                           </use>
                         </svg></span>
-                      <input class="form-control" type="text" name="name" placeholder="Username">
+                      <input class="form-control" value="{{ old('name') ? old('name') : $user->name }}" type="text" name="name" placeholder="Username">
+                      {{-- <input type="text" value="{{ old('product_name') ? old('product_name') : $product->product_name }}"
+                  class="form-control" id="product_name" name="product_name"> --}}
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -76,22 +79,17 @@
                           <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-envelope-open">
                           </use>
                         </svg></span>
-                      <input class="form-control" type="email" name="email" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="input-group mb-3"><span class="input-group-text">
-                        <svg class="icon">
-                          <use xlink:href="/back_assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked">
-                          </use>
-                        </svg></span>
-                      <input class="form-control" type="password" name="password" placeholder="Password">
+                      <input class="form-control" value="{{ old('email') ? old('email') : $user->email }}" type="email" name="email" placeholder="Email">
                     </div>
                   </div>
                   <div class="input-group mb-4">
                     <input class="form-control" type="file" name="image">
                   </div>
+                  <div class="col-md-6">
+                    <img width="150" src="/user_image/{{ $user->image }}" >
+                  </div>                  
                 </div>
+                  <br>
                 <div class="row">
                   <div class="col-6">
                     <button class="btn btn-success px-4" type="submit">Update User</button>
