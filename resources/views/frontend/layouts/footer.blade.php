@@ -81,24 +81,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
      
      <!-- Optional JavaScript -->
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <script src="/front_assets/js/jquery-3.2.1.min.js"></script>
-     <script src="/front_assets/js/popper.js"></script>
-     <script src="/front_assets/js/bootstrap.min.js"></script>
-     <script src="/front_assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-     <script src="/front_assets/js/jquery.ajaxchimp.min.js"></script>
-     <script src="/front_assets/js/mail-script.js"></script>
-     <script src="/front_assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-     <script src="/front_assets/vendors/nice-select/js/jquery.nice-select.js"></script>
-     <script src="/front_assets/js/mail-script.js"></script>
-     <script src="/front_assets/js/stellar.js"></script>
-     <script src="/front_assets/vendors/lightbox/simpleLightbox.min.js"></script>
-     <script src="/front_assets/js/custom.js"></script>
-     <!--gmaps Js-->
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-     <script src="/front_assets/js/gmaps.min.js"></script>
+     <script src="{{asset('/front_assets/js/jquery-3.2.1.min.js')}}"></script>
+     <script src="{{asset('/front_assets/js/popper.js')}}"></script>
+     <script src="{{asset('/front_assets/js/bootstrap.min.js')}}"></script>
+     <script src="{{asset('/front_assets/vendors/owl-carousel/owl.carousel.min.js')}}"></script>
+     <script src="{{asset('/front_assets/js/jquery.ajaxchimp.min.js')}}"></script>
+     <script src="{{asset('/front_assets/js/mail-script.js')}}"></script>
+     <script src="{{asset('/front_assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js')}}"></script>
+     <script src="{{asset('/front_assets/vendors/nice-select/js/jquery.nice-select.js')}}"></script>
+     <script src="{{asset('/front_assets/js/mail-script.js')}}"></script>
+     <script src="{{asset('/front_assets/js/stellar.js')}}"></script>
+     <script src="{{asset('/front_assets/vendors/lightbox/simpleLightbox.min.js')}}"></script>
+     <script src="{{asset('/front_assets/js/custom.js')}}"></script>     
      <!-- contact js -->
-     <script src="/front_assets/js/jquery.form.js"></script>
-     <script src="/front_assets/js/jquery.validate.min.js"></script>
-     <script src="/front_assets/js/contact.js"></script>     
+     <script src="{{asset('/front_assets/js/jquery.form.js')}}"></script>
+     <script src="{{asset('/front_assets/js/jquery.validate.min.js')}}"></script>
+     <script src="{{asset('/front_assets/js/contact.js')}}"></script>     
  </body>
-</html>    
+</html>

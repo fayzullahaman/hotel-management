@@ -17,52 +17,27 @@
     <!--================Breadcrumb Area =================-->
     <!--================Contact Area =================-->
     <section class="contact_area section_gap">
-        <div class="container">
-            {{-- <div id="mapBox" class="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="13"
-                data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia." data-mlat="40.701083"
-                data-mlon="-74.1522848">
-            </div> --}}
-            <div class="container mt-5">               
-               <div id="map"></div>
-           </div>
-         
-           <script type="text/javascript">
-               function initMap() {
-                 const myLatLng = { lat: 22.2734719, lng: 70.7512559 };
-                 const map = new google.maps.Map(document.getElementById("map"), {
-                   zoom: 5,
-                   center: myLatLng,
-                 });
-         
-                 new google.maps.Marker({
-                   position: myLatLng,
-                   map,
-                   title: "Hello Rajkot!",
-                 });
-               }
-         
-               window.initMap = initMap;
-           </script>
-         
-           <script type="text/javascript"
-               src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap"></script>
-         
+        <div class="container">            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.3009421531474!2d90.40954381531695!3d23.736645495217815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9f6eb06bfb9%3A0xcbefa252dc74c3e9!2sThe%20Computers%20Ltd%20(TCLD)!5e0!3m2!1sen!2sbd!4v1676978449138!5m2!1sen!2sbd" width="100%" height="60%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br>
+            <br>
+            <br>
             <div class="row">
                 <div class="col-md-3">
                     <div class="contact_info">
                         <div class="info_item">
                             <i class="lnr lnr-home"></i>
-                            <h6>California, United States</h6>
-                            <p>Santa monica bullevard</p>
+                            <h6>Scout Market, Kakrail, Dhaka</h6>
+                            <p>Dhaka Bangladesh</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-phone-handset"></i>
-                            <h6><a href="#">00 (440) 9865 562</a></h6>
+                            <h6><a href="#">+880123456789</a></h6>
                             <p>Mon to Fri 9am to 6 pm</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-envelope"></i>
-                            <h6><a href="#">support@colorlib.com</a></h6>
+                            <h6><a href="#">hotel@royal.com</a></h6>
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>

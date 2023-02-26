@@ -35,8 +35,6 @@ use App\Http\Controllers\backend\UsersController;
 // Route::resource('/admin/user', UsersController::class);
 
 
-
-
 // Frontend Route
 Route::get('/', function () {
     return view('frontend.layouts.app');

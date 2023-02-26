@@ -3599,6 +3599,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #f3c300;
 }
 
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+
+.affix + .container-fluid {
+  padding-top: 70px;
+}
+
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */

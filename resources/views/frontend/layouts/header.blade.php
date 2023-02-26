@@ -5,19 +5,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="/front_assets/image/favicon.png" type="image/png">
+    <link rel="icon" href="{{asset('/front_assets/image/favicon.png')}}}" type="image/png">
     <title>Royal Hotel</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/front_assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/front_assets/vendors/linericon/style.css">
-    <link rel="stylesheet" href="/front_assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/front_assets/vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="/front_assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="/front_assets/vendors/nice-select/css/nice-select.css">
-    <link rel="stylesheet" href="/front_assets/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('/front_assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/vendors/linericon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/vendors/owl-carousel/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/vendors/nice-select/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/vendors/owl-carousel/owl.carousel.min.css')}}">
     <!-- main css -->
-    <link rel="stylesheet" href="/front_assets/css/style.css">
-    <link rel="stylesheet" href="/front_assets/css/responsive.css">
+    <link rel="stylesheet" href="{{asset('/front_assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/front_assets/css/responsive.css')}}">
     <style type="text/css">
       #map {
         height: 400px;
@@ -41,21 +41,21 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent" data-spy="affix" data-offset-top="197">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('about')}}">About us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('accomodation')}}">Accomodation</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('gallery')}}">Gallery</a></li>
-                        <li class="nav-item submenu dropdown">
+                        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                        <li  class="nav-item {{ Request::is('about') ? 'active' : '' }}"><a class="nav-link" href="{{url('about')}}">About us</a></li>
+                        <li class="nav-item {{ Request::is('accomodation') ? 'active' : '' }}"><a class="nav-link" href="{{url('accomodation')}}">Accomodation</a></li>
+                        <li class="nav-item {{ Request::is('gallery') ? 'active' : '' }}"><a class="nav-link" href="{{url('gallery')}}">Gallery</a></li>
+                        <li class="nav-item submenu dropdown {{ Request::is('blog','blog_details') ? 'active' : '' }}">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{url('blog')}}">Blog</a></li>
+                                <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{url('blog')}}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{url('blog_details')}}">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
+                        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('admin/dashboard')}}">Admin</a></li>
                     </ul>
                 </div>
