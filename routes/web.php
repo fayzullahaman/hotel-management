@@ -80,5 +80,17 @@ Route::prefix('admin')->middleware([
         return view('backend.pages.dashboard');
     })->name('dashboard');
     // Another line
+    // Route::resource('user', UsersController::class);
+});
+
+Route::prefix('user')->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('backend.pages.dashboard');
+    })->name('dashboard');
+    // Another line
     Route::resource('user', UsersController::class);
 });

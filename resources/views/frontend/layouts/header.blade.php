@@ -56,7 +56,9 @@
                             </ul>
                         </li>
                         <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('admin/dashboard')}}">Admin</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="{{url('admin/dashboard')}}">Admin</a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="{{url('/admin/login')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('/admin/register')}}">Register</a></li>
                     </ul>
                 </div>
             </nav>
